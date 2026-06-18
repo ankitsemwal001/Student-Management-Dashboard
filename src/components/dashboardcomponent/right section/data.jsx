@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Datacard from './datacard'
 import AddStudent from './addStudent'
 import Explore from './explore'
 import StudentList from './studentList'
 
 const Data = () => {
+    const [students, setStudents] = useState([])
+
     return (
-        <div className=' w-3/4 '>
+        <div className='w-3/4 overflow-y-auto'>
             <Datacard />
-            <AddStudent />
+            <AddStudent students={students} setStudents={setStudents} />
             <Explore />
-            <StudentList />
+            <StudentList data={students} />
         </div>
     )
 }

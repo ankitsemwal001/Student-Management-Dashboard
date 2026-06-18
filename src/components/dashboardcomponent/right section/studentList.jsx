@@ -1,10 +1,9 @@
 import React from 'react'
 
-const StudentList = ({ data }) => {
+const StudentList = ({ data = [] }) => {
     return (
-        <div>
-            <h1>All Students</h1>
-
+        <div className='border border-transparent bg-amber-20 mt-10 mb-5'>
+            <h1 className='text-2xl font-semibold mt-4 ml-4'>All Students</h1>
             <table className="w-full border border-collapse mt-10">
                 <thead>
                     <tr>
@@ -17,7 +16,6 @@ const StudentList = ({ data }) => {
                         <th className="border p-2">Action</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {data.map((student, index) => (
                         <tr key={index}>
@@ -28,9 +26,10 @@ const StudentList = ({ data }) => {
                             <td className="border p-2">{student.course}</td>
                             <td className="border p-2">{student.city}</td>
                             <td className="border p-2">
-                                <button className="bg-blue-500 text-white px-2 py-1 rounded">
-                                    Edit
-                                </button>
+                                <div className='gap-8'>
+                                    <button className="bg-blue-500 text-white px-2 py-1  rounded">Edit</button>
+                                    <button className="bg-amber-500 text-white px-2 py-1 rounded m-2">Delete</button>
+                                </div>
                             </td>
                         </tr>
                     ))}

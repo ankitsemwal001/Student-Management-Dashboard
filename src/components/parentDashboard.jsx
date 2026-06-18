@@ -5,7 +5,7 @@ import Data from './dashboardcomponent/right section/data';
 const ParentDashboard = () => {
     return (
         <div className="min-h-screen place-items-center mt-9">
-            <div className="border h-[90vh] w-5/6 rounded-lg">
+            <div className="border h-auto w-5/6 rounded-lg">
                 <div className="flex gap-2 items-center p-4 bg-blue-800 text-amber-50">
                     <span>
                         <GraduationCap size={40} strokeWidth={1.5} />
