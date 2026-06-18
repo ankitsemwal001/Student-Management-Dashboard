@@ -33,7 +33,10 @@ const AddStudent = () => {
     };
 
     const handleSubmit = () => {
-        if (!formData.name || !formData.email || !formData.course) return;
+        if (!formData.name || !formData.email || !formData.course) {
+            alert('Please fill Name, Email and Course!');
+            return;
+        }
 
         setStudents([...students, formData]);
 
@@ -97,7 +100,6 @@ const AddStudent = () => {
                             className="mt-1 border rounded-md px-3 py-2"
                         >
                             <option value="">Select Course</option>
-
                             {courses.map((item, index) => (
                                 <option key={index} value={item}>
                                     {item}
@@ -129,7 +131,6 @@ const AddStudent = () => {
                 </div>
             </div>
 
-            {/* StudentList ko students array pass kar rahe hain */}
             <StudentList data={students} />
         </div>
     );
