@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const StudentList = ({ data = [] }) => {
+
+
+
+const StudentList = ({ data, setStudents }) => {
+
+    const handleDelete = (index) => {
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this student??"
+        );
+        if (confirmDelete) {
+            setStudents(data.filter((_, i) => i !== index));
+        }
+    };
+
+
+
+
     return (
         <div className='border border-transparent bg-amber-20 mt-10 mb-5'>
             <h1 className='text-2xl font-semibold mt-4 ml-4'>All Students</h1>
@@ -11,6 +27,7 @@ const StudentList = ({ data = [] }) => {
                         <th className="border p-2">Name</th>
                         <th className="border p-2">Email</th>
                         <th className="border p-2">Phone</th>
+                        <th className="border p-2">Gender</th>
                         <th className="border p-2">Course</th>
                         <th className="border p-2">City</th>
                         <th className="border p-2">Action</th>
@@ -22,20 +39,25 @@ const StudentList = ({ data = [] }) => {
                             <td className="border p-2">{index + 1}</td>
                             <td className="border p-2">{student.name}</td>
                             <td className="border p-2">{student.email}</td>
-                            <td className="border p-2">{student.phone}</td>
+                            <td className="border p-2">{student.gender}</td>
                             <td className="border p-2">{student.course}</td>
+                            <td className="border p-2">{student.phone}</td>
                             <td className="border p-2">{student.city}</td>
                             <td className="border p-2">
                                 <div className='gap-8'>
                                     <button className="bg-blue-500 text-white px-2 py-1  rounded">Edit</button>
-                                    <button className="bg-amber-500 text-white px-2 py-1 rounded m-2">Delete</button>
+                                    <button className="bg-amber-500 text-white px-2 py-1 rounded m-2 cursor-pointer"
+                                        onClick={() => handleDelete(index)}
+                                    >
+
+                                        Delete</button>
                                 </div>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-        </div>
+        </div >
     );
 };
 

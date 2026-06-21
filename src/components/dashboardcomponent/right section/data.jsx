@@ -9,10 +9,10 @@ const Data = () => {
 
     return (
         <div className='w-3/4 overflow-y-auto'>
-            <Datacard />
+            <Datacard data={students} />
             <AddStudent students={students} setStudents={setStudents} />
             <Explore />
-            <StudentList data={students} />
+            <StudentList data={students} setStudents={setStudents} />
         </div>
     )
 }

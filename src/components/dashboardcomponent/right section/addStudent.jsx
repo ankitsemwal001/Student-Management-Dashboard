@@ -1,14 +1,22 @@
 import { useState } from 'react';
 
+
+
+
 const courseMenu = () => {
     return ['Javascript', 'React', 'Nodejs', 'MongoDB', 'Express', 'Django'];
 };
 
+const studentGender = () => {
+    return ['Male', 'Female', 'Other'];
+};
+
 const AddStudent = ({ students, setStudents }) => {
     const courses = courseMenu();
+    const gender = studentGender();
 
     const [formData, setFormData] = useState({
-        name: '', email: '', phone: '', course: '', city: ''
+        name: '', email: '', phone: '', gender: '', course: '', city: ''
     });
 
     const handleChange = (e) => {
@@ -16,14 +24,23 @@ const AddStudent = ({ students, setStudents }) => {
     };
 
     const handleSubmit = () => {
-        if (!formData.name || !formData.email || !formData.course) {
-            alert('Name, Email aur Course required hai!');
+        if (!formData.name) {
+            alert('Name, Email aur Course required');
+            return;
+        }
+        else if (!formData.email) {
+            alert('Email required');
+            return;
+        }
+
+        else if (!formData.course) {
+            alert('course required');
             return;
         }
 
         setStudents([...students, formData]);
 
-        setFormData({ name: '', email: '', phone: '', course: '', city: '' });
+        setFormData({ name: '', email: '', phone: '', gender: '', course: '', city: '' });
     };
 
     return (
@@ -46,6 +63,18 @@ const AddStudent = ({ students, setStudents }) => {
                         <input type="number" name="phone" value={formData.phone}
                             onChange={handleChange} className="mt-1 border rounded-md px-3 py-2" />
                     </label>
+
+                    <label className="flex flex-col">
+                        Course
+                        <select name="gender" value={formData.gender}
+                            onChange={handleChange} className="mt-1 border rounded-md px-3 py-2">
+                            <option value="">Gender</option>
+                            {gender.map((item, index) => (
+                                <option key={index} value={item}>{item}</option>
+                            ))}
+                        </select>
+                    </label>
+
                     <label className="flex flex-col">
                         Course
                         <select name="course" value={formData.course}
@@ -62,7 +91,7 @@ const AddStudent = ({ students, setStudents }) => {
                             onChange={handleChange} className="mt-1 border rounded-md px-3 py-2" />
                     </label>
                     <button onClick={handleSubmit}
-                        className="border border-b-fuchsia-900 rounded-2xl h-full w-2/4 bg-blue-400">
+                        className="border border-b-fuchsia-900 rounded-2xl h-full cursor-pointer w-2/4 bg-blue-400">
                         <h1 className="font-semibold text-amber-50">Add Student</h1>
                     </button>
                 </div>
