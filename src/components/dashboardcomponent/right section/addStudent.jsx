@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+
+
 const courseMenu = () => {
     return ["Javascript", "React", "Nodejs", "MongoDB", "Express", "Django"];
 };
@@ -21,7 +23,7 @@ const AddStudent = ({ students, setStudents, editStudent, onSave }) => {
         city: "",
     });
 
-    // Edit button click hone par form fill hoga
+
     useEffect(() => {
         if (editStudent) {
             setFormData(editStudent);
@@ -51,7 +53,7 @@ const AddStudent = ({ students, setStudents, editStudent, onSave }) => {
             return;
         }
 
-        // Edit Mode
+
         if (editStudent) {
             onSave(formData);
         } else {
