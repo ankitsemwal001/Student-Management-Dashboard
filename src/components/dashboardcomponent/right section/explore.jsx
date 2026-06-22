@@ -1,20 +1,21 @@
-import React from 'react'
-import { Search } from 'lucide-react';
-
-
-const Explore = () => {
-
-
+const Explore = ({ search, setSearch }) => {
     return (
-        <div className='mt-8 '>
-            <div className='w-full gap-3 flex '>
-                <input type="search" placeholder='🔍 Search by name' className='w-full cursor-text h-10 px-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500' id="" />
-                <button className='border p-1 w-1/4 rounded'
-                >All courses</button>
+        <div className="mt-8">
+            <div className="w-full gap-3 flex">
+                <input
+                    type="search"
+                    placeholder="🔍 Search by name"
+                    className="w-full h-10 px-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+
+                <button className="border p-1 w-1/4 rounded">
+                    All Courses
+                </button>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default Explore
+export default Explore;

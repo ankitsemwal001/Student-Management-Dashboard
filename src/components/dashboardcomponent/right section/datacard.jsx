@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Users } from 'lucide-react';
 import { User } from 'lucide-react';
 import { Box } from 'lucide-react';
