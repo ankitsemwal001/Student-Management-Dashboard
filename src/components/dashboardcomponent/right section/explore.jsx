@@ -1,4 +1,5 @@
 const Explore = ({ search, setSearch }) => {
+
     return (
         <div className="mt-8">
             <div className="w-full gap-3 flex">
@@ -10,7 +11,7 @@ const Explore = ({ search, setSearch }) => {
                     onChange={(e) => setSearch(e.target.value)}
                 />
 
-                <button className="border p-1 w-1/4 rounded">
+                <button className="border p-1 w-1/4 rounded" >
                     All Courses
                 </button>
             </div>
